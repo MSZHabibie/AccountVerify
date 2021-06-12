@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap");
+
 body {
     background-color: #d7dbf1;
 }
@@ -77,7 +79,215 @@ label {
 .text-top {
     text-align: right;
     padding-right: 50px;
+    font-size: 1.3em;
+    padding-top: 15px;
+}
+
+.text-top a {
+    color: #1c2d8c;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 12px 6%;
+    background-color: #ffb444;
+}
+
+/* .navbarr {
+    position: fixed;
+} */
+
+.logo {
+    margin-right: auto;
+    text-decoration: none;
+    font-family: "Saira Stencil One", cursive;
+    color: #1c2d8c;
+    font-size: 2.5rem;
+}
+
+.nav__links {
+    list-style: none;
+    display: flex;
+}
+
+.nav__links a,
+.cta,
+.overlay__content a {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    color: #edf0f1;
+    text-decoration: none;
+    font-size: 1.15rem;
+}
+
+.nav__links li {
+    padding: 0px 20px;
+}
+
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+    color: #1c2d8c;
+}
+
+.cta {
+    margin-left: 20px;
+    padding: 9px 25px;
+    background-color: #1c2d8c;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.cta:hover {
+    background-color: #32429c;
+}
+
+/* Mobile Nav */
+
+.menu {
+    display: none;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: #24252a;
+    overflow-x: hidden;
+    transition: all 0.5s ease 0s;
+}
+
+.overlay--active {
+    width: 100%;
+}
+
+.overlay__content {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay a {
+    padding: 15px;
+    font-size: 36px;
+    display: block;
+    transition: all 0.3s ease 0s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+    color: #0088a9;
+}
+.overlay .close {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+    color: #edf0f1;
+    cursor: pointer;
+}
+
+@media screen and (max-height: 200px) {
+    .overlay a {
+        font-size: 20px;
+    }
+    .overlay .close {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .nav__links,
+    .cta {
+        display: none;
+    }
+    .menu {
+        display: initial;
+    }
+}
+
+.text-desc {
+    padding-top: 20rem;
+    padding-left: 32rem;
+    padding-bottom: 20rem;
+    font-size: 2rem;
+    color: #edf0f1;
+}
+
+.img-place {
+    position: relative;
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    width: 80%;
+    height: 100%;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 0%;
+}
+
+.headerr {
+    padding-top: 230px;
+    background-image: linear- gradient (rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.search-field {
+    height: 60px;
+    padding: 20px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
     font-size: 1.2em;
-    color: #18277c;
-    padding-top: 10px;
+}
+
+.searching {
+    width: 660px;
+}
+
+.search-btn {
+    height: 60px;
+    width: 150px;
+    background: black;
+    border: none;
+    color: seashell;
+    border-radius: 25px;
+    font-size: 1.2em;
+}
+
+.search-btn:hover {
+    background: rgba(0, 0, 0, 0.5);
+    color: black;
+    cursor: pointer;
+}
+
+.scroll {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    text-decoration: underline;
 }

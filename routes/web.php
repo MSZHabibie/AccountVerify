@@ -27,3 +27,5 @@ Route::post('/registrasi', 'App\Http\Controllers\UsersController@store');
 
 Route::view('/login','regis_login.login')->name('login');
 Route::post('/check', 'App\Http\Controllers\UsersController@check');
+
+Route::view('/index','index')->name('index');
