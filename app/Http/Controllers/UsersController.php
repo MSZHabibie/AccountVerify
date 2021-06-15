@@ -80,14 +80,19 @@ class UsersController extends Controller
         ]);
 
         $creds = $request->only('email','password');
-        if( Auth::attempt($creds) ){
-
-            return "Anda Berhasil Login";
+        if( Auth::guard('web')->attempt($creds) ){
+            return redirect('/user/home');
 
         }else{
-            return redirect('/login')->with('fail','Inputan Anda Salah!');
+            return redirect('/user/login')->with('fail','Inputan Anda Salah!');
         }
-   }
+    }
+
+
+    public function logout(){
+        Auth::guard('web')->logout();
+        return redirect('/user/login');
+    }
    
 
     /**

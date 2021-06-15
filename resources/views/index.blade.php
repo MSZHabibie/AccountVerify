@@ -17,12 +17,12 @@
             <a class="logo ml-4 text-sm text-gray-700 underline" href="">accify.com</a>
             <nav>
                 <ul class="nav__links">
-                    <li><a href="/index">Home</a></li>
-                    <li><a href="/login">Daftar Akun</a></li>
+                    <li><a href="/user/index">Home</a></li>
+                    <li><a href="/user/login">Daftar Akun</a></li>
                 </ul>
             </nav>
-            <a class="cta" href="/login">Login</a>
-            <a class="cta" href="/registrasi">Registrasi</a>
+            <a class="cta" href="/user/login">Login</a>
+            <a class="cta" href="/user/registrasi">Registrasi</a>
         </header>
        
     </div>

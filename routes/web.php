@@ -14,18 +14,46 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::view('/registrasi','regis_login.registrasi')->name('registrasi');
-Route::post('/registrasi', 'App\Http\Controllers\UsersController@store');
+Auth::routes();
 
-Route::view('/login','regis_login.login')->name('login');
-Route::post('/check', 'App\Http\Controllers\UsersController@check');
+Route::view('/','index')->name('index');
 
-Route::view('/index','index')->name('index');
+Route::prefix('user')->name('user.')->group(function(){
+  
+    Route::middleware(['guest:web','PreventBackHistory'])->group(function(){
+        Route::view('/registrasi','regis_login.registrasi')->name('registrasi');
+        Route::post('/registrasi', 'App\Http\Controllers\UsersController@store');
+        Route::view('/login','regis_login.login')->name('login');
+        Route::post('/check', 'App\Http\Controllers\UsersController@check');
+        
+    });
+
+    Route::middleware(['auth:web','PreventBackHistory'])->group(function(){
+        Route::view('/home','user.home')->name('home'); 
+        Route::get('/logout', 'App\Http\Controllers\UsersController@logout');
+    });
+});
+
+
+Route::prefix('admin')->name('admin.')->group(function(){
+       
+    Route::middleware(['guest:admin','PreventBackHistory'])->group(function(){
+        // Route::get('/masuk', 'App\Http\Controllers\AdminsController@login');
+        Route::view('/masuk','admin.login')->name('login'); 
+        Route::post('/check', 'App\Http\Controllers\AdminsController@check');
+        
+    });
+
+    Route::middleware(['auth:admin','PreventBackHistory'])->group(function(){
+        Route::view('/home','admin.home')->name('home');
+        Route::get('/logout', 'App\Http\Controllers\AdminsController@logout');
+    });
+
+});
+
