@@ -43,7 +43,7 @@ class DaftarController extends Controller
         $pendaftaran = new Pendaftaran();
         // $pendaftaran->category = $request->category;
         // $pendaftaran->checkbox = $request->checkbox;
-        $pendaftaran->user = Auth::guard('web')->user()->id;
+        $pendaftaran->user = Auth::guard('web')->user()->last_name;
         $arraytostring = implode(',', $request->input('checkbox'));
         $pendaftaran['checkbox'] = $arraytostring;
         $pendaftaran->file = $request->file;

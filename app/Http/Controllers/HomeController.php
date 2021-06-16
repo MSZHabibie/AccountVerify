@@ -37,6 +37,6 @@ class HomeController extends Controller
             ->where('keyword', 'like', '%' . $cari . '%')
             ->paginate();
 
-        return view('index', ['account' => $account]);
+        return view('index2', ['account' => $account]);
     }
 }

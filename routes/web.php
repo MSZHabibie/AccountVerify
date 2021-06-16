@@ -65,13 +65,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
 });
 
-// Route::get('/daftar', [DaftarController::class, 'index']);
-// Route::get('/daftar/create', [DaftarController::class, 'create']);
-// Route::get('/daftar/{tes}', [DaftarController::class, 'show']);
-// Route::post('/daftar', [DaftarController::class, 'store']);
-// Route::view('/profil', 'user.profil')->name('profil');
-// Route::view('/home', 'user.home')->name('home');
-// Route::get('/daftars', [DaftarController::class, 'admin']);
+Route::get('/daftar', [DaftarController::class, 'index']);
+Route::get('/daftar/create', [DaftarController::class, 'create']);
+Route::get('/daftar/{tes}', [DaftarController::class, 'show']);
+Route::post('/daftar', [DaftarController::class, 'store']);
+Route::view('/profil', 'user.profil')->name('profil');
+Route::view('/home', 'user.home')->name('home');
+Route::get('/daftars', [DaftarController::class, 'admin']);
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/cari', [HomeController::class, 'cari']);

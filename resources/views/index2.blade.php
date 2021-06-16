@@ -19,10 +19,10 @@
         <header>
             <a class="logo ml-4 text-sm text-gray-700 underline" href="">Accify.com</a>
             <nav>
-                <a class="nav_home" href="/index" >Home</a>
+                <a class="nav_home" href="/index">Home</a>
                 <a class="nav_home" href="user/daftar">Daftar Akun</a>
             </nav>
-            <a class="cta" href="/user/login" >Login</a>
+            <a class="cta" href="/user/login">Login</a>
             <a class="cta" href="/user/registrasi">Registrasi</a>
 
         </header>
@@ -42,35 +42,37 @@
 
     <div class="page-hero-section bg-image hero-home-1" style="background-image: url(../assets/img/bg6.png); background-repeat: no-repeat; background-size: 100%;">
 
-        <div class="page-section" >
+        <div class="page-section">
             <div class="container">
-                <div class="headerr" >
+                <div class="headerr">
                     <!-- <h1>Find what you want here</h1> -->
                     <div class="form-box">
                         <input type="text" class="search-field searching" placeholder="Cari akun">
                         <button class="search-btn" type="button">Search </button>
-                    
+
                     </div>
                 </div>
 
-                <div class=" col-md-10" style=" padding-left:250px; " >
-                        <br><br><br>
+                <div class=" col-md-10" style=" padding-left:250px; ">
+                    <br><br><br>
                     <h5>List Akun</h5>
                     <table class="table table-sm border-dark table-light" style="margin-top: 1em; font-size:1.3em; ">
-                                <thead class="table-dark">
-                                <tr>
-                                
-                                    <th scope="col">Nama Akun</th>
-                                    <th scope="col">Type</th>
-                                </tr>    
-                                </thead>
-                                <tbody>        
-                                    <tr>
-                                        <td>  a</td>
-                                        <td>  b </td>           
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <thead class="table-dark">
+                            <tr>
+
+                                <th scope="col">Nama Akun</th>
+                                <th scope="col">Type</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($account as $acc)
+                            <tr>
+                                <td> a</td>
+                                <td> b </td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
                 </div>
 
 
