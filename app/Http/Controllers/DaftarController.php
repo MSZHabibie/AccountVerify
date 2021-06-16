@@ -62,7 +62,7 @@ class DaftarController extends Controller
         // ]);
 
         // Pendaftaran::create($request->all());
-        return redirect('/daftar');
+        return redirect('user/daftar');
     }
 
     /**

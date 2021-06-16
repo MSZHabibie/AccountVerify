@@ -2,23 +2,13 @@
 @section('title', 'Accify | Daftar')
 
 @section('body')
-<div class="container mt-5">
-   <h3>Kategori Akun</h3>
-   <div class="dropdown">
-      <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-         Pilihan
-      </a>
-      <?php $tes = ['artis', 'lembaga', 'toko']; ?>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-         <li><a class="dropdown-item" href="/daftar/{{$tes[0]}}">Artis</a></li>
-         <li><a class="dropdown-item" href="/daftar/{{$tes[1]}}">Lembaga</a></li>
-         <li><a class="dropdown-item" href="/daftar/{{$tes[2]}}">Online Shop</a></li>
-         <li><a class="dropdown-item" href="/daftar">Others..</a></li>
-      </ul>
-   </div>
-</div>
-<div class="container mt-5 rounded-3">
-   <form method="post" action="/daftar" class="row gy-2 gx-1 align-items-center">
+
+<div class="card-body"> 
+<div class="row" style="margin-left: 15px;">
+<div class="container rounded-3 col-md-6">
+   <h1>Kategori : ... </h1>
+   <br>
+   <form method="post" action="{{ url('user/daftar')}}" class="row gy-2 gx-1 align-items-center" >
       @csrf
       @foreach($checkbox as $chk)
       <div class="form-check">
@@ -31,32 +21,48 @@
       @endforeach
       <div class="mb-4 mt-4">
          <h3>Bukti Keaslian</h3>
-         <input class="form-control" type="file" id="file" name="file" multiple>
+         <input class="form-control @error('file') is-invalid @enderror" type="file" id="file" name="file" multiple>
+         @error('file')
+                    <div class="invalid-feedback">{{ $message }}</div>
+         @enderror
       </div>
       <div class="mb-3">
          <h3>Kata Kunci Pencarian</h3>
-         <input type="text" class="form-control" id="keyword" name="keyword">
+         <input type="text" class="form-control @error('keyword') is-invalid @enderror" id="keyword" name="keyword" placeholder="Keyword">
+         @error('keyword')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
       </div>
       <h3>Daftar Akun</h3>
 
       <div class="col">
          <label class="visually-hidden" for="account">Name</label>
-         <input type="text" class="form-control" id="account" name="account" placeholder="Name Account">
+         <input type="text" class="form-control @error('account') is-invalid @enderror" id="account" name="account" placeholder="Name Account">
+         @error('account')
+                    <div class="invalid-feedback">{{ $message }}</div>
+                @enderror
       </div>
       <div class="col-auto">
          <label class="visually-hidden" for="type">Preference</label>
-         <select class="form-select" id="type" name="type">
+         <select class="form-select @error('type') is-invalid @enderror" id="type" name="type">
             <option selected>Type</option>
-            <option value="1">Instagram</option>
-            <option value="2">WhatsApp</option>
-            <option value="3">Telegram</option>
+            <option value="instagram">Instagram</option>
+            <option value="twitter">Twitter</option>
+            <option value="facebook">Facebook</option>
+            <option value="website">Website</option>
+            <option value="youtube">Youtube</option>
          </select>
       </div>
       <div class="col-auto">
       </div>
 
-      <button type="submit" class="btn btn-primary mt-3">Tambah Akun</button>
+      <!-- <button type="submit" class="btn btn-primary mt-3">Tambah Akun</button> -->
+      <!-- /.card-body -->
+      <div class="card-footer"  >
+            <button type="submit" class="btn btn-primary " style="float: right;">Tambah Akun</button>
+      </div>
    </form>
 </div>
-
+</div>
+</div>
 @endsection
