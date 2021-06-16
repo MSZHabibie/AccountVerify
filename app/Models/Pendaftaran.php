@@ -9,11 +9,11 @@ class pendaftaran extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'category',
         'checkbox',
         'file',
         'keyword',
         'account',
-        'type'
+        'type',
+        'verifikasi'
     ];
 }

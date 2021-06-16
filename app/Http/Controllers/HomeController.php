@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pendaftaran;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -11,10 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -23,6 +25,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $account = DB::table('pendaftarans')->paginate(10);
+
+        return view('index', ['account' => $account]);
+    }
+
+    public function cari(Request $request)
+    {
+        $cari = $request->get('cari');
+        $account = DB::table('pendaftarans')
+            ->where('keyword', 'like', '%' . $cari . '%')
+            ->paginate();
+
+        return view('index2', ['account' => $account]);
     }
 }

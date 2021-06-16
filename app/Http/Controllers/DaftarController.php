@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Checkbox;
 use App\Models\Pendaftaran;
+use Illuminate\Support\Facades\Auth;
 
 class DaftarController extends Controller
 {
@@ -40,29 +41,21 @@ class DaftarController extends Controller
     public function store(Request $request)
     {
         $pendaftaran = new Pendaftaran();
-        // $pendaftaran->nama_user = $request->nama_user;
         // $pendaftaran->category = $request->category;
         // $pendaftaran->checkbox = $request->checkbox;
+        $pendaftaran->user = Auth::guard('web')->user()->last_name;
         $arraytostring = implode(',', $request->input('checkbox'));
         $pendaftaran['checkbox'] = $arraytostring;
         $pendaftaran->file = $request->file;
         $pendaftaran->keyword = $request->keyword;
         $pendaftaran->account = $request->account;
         $pendaftaran->type = $request->type;
-
+        // if (admin) {
+        //     $pendaftaran->verifikasi = 'verified';
+        // }
         $pendaftaran->save();
 
-        // Pendaftaran::create([
-        //     'nama_user' => $request->nama_user,
-        //     'category' => $request->category,
-        //     'checkbox' => $request->checkbox,
-        //     'keyword' => $request->keyword,
-        //     'account' => $request->account,
-        //     'type' => $request->type
-        // ]);
-
-        // Pendaftaran::create($request->all());
-        return redirect('user/daftar');
+        return redirect('/daftar')->with('status', 'Akun Memasuki Tahap Evaluasi Berkas');
     }
 
     /**
