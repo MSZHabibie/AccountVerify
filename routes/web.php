@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\DaftarController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 
 Auth::routes();
 
@@ -33,6 +35,7 @@ Route::prefix('user')->name('user.')->group(function(){
         Route::post('/check', 'App\Http\Controllers\UsersController@check');
         
     });
+
 
     Route::middleware(['auth:web','PreventBackHistory'])->group(function(){
         Route::view('/home','user.home')->name('home'); 
@@ -56,4 +59,9 @@ Route::prefix('admin')->name('admin.')->group(function(){
     });
 
 });
+
+Route::get('/daftar', [DaftarController::class, 'index']);
+Route::get('/daftar/create', [DaftarController::class, 'create']);
+Route::get('/daftar/{tes}', [DaftarController::class, 'show']);
+// Route::get('/daftars', [DaftarController::class, 'admin']);
 
