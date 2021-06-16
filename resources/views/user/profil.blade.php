@@ -3,6 +3,7 @@
 
 @section('body')
 
+
 <div class="col-15">
     <div class="card-body" style=" padding-top:2rem; ">
         <div class="row">
@@ -16,6 +17,7 @@
             </div>
             <div class="container rounded-3 col-md-5 ">
                 <div class="row">
+
                     <div class="col-sm-3">
                         <h6 class="mb-2">First Name </h6>
                     </div>

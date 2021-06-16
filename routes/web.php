@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DaftarController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfilController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,13 +42,13 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::middleware(['auth:web'])->group(function () {
         Route::view('/home', 'user.home')->name('home');
         Route::view('/home2', 'user.home2')->name('home2');
-        Route::get('/logout', 'App\Http\Controllers\UsersController@logout');
         Route::get('/daftar', [DaftarController::class, 'index']);
         Route::get('/daftar/create', [DaftarController::class, 'create']);
         Route::get('/daftar/{tes}', [DaftarController::class, 'show']);
         Route::post('/daftar', [DaftarController::class, 'store']);
         Route::view('/profil', 'user.profil')->name('profil');
         Route::view('/home', 'user.home')->name('home');
+        Route::post('/logout', 'App\Http\Controllers\UsersController@logout');
         Route::get('/profil', [ProfilController::class, 'index']);
     });
 });
@@ -62,8 +63,15 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
 
     Route::middleware(['auth:admin', 'PreventBackHistory'])->group(function () {
-        Route::view('/home', 'admin.home')->name('home');
-        Route::get('/logout', 'App\Http\Controllers\AdminsController@logout');
+        // Route::view('/home', 'admin.home')->name('home');
+        Route::get('/home', 'App\Http\Controllers\AdminsController@index');
+        Route::post('/logout', 'App\Http\Controllers\AdminsController@logout');
+        Route::get('/daftar', [DaftarController::class, 'index2']);
+        Route::get('/profil', [AdminsController::class, 'show']);
+        Route::get('/daftar/create', [DaftarController::class, 'create']);
+        Route::get('/daftar/{tes}', [DaftarController::class, 'show']);
+        Route::post('/daftar', [DaftarController::class, 'store2']);
+        //Route::view('/profil', 'admin.profil')->name('');
     });
 });
 
@@ -77,3 +85,4 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/cari', [HomeController::class, 'cari']);
+

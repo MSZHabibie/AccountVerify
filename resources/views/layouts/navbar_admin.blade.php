@@ -19,15 +19,15 @@
         <header>
             <a class="logo ml-4 text-sm text-gray-700 underline" href="">Accify.com</a>
             <nav>
-                <a class="nav_home" href="{{ url('user/home')}} ">Home</a>
-                <a class="nav_home" href="{{ url('user/daftar')}} ">Daftar Akun</a>
+                <a class="nav_home" href="{{ url('admin/home')}} ">Home</a>
+                <a class="nav_home" href="{{ url('admin/daftar')}} ">Daftar Akun</a>
             </nav>
-            <a class="cta" href="{{ url('user/profil')}} ">Profil</a>
+            <a class="cta" href="{{ url('admin/profil')}} ">Profil</a>
 
-            <a type="submit" href="{{ url('user/logout') }}"  class="nav_home" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+            <a type="submit" href="{{ url('admin/logout') }}"  class="nav_home" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                 <span class="nav__name">Keluar</span>
             </a>
-            <form action="{{ url('/user/logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
+            <form action="{{ url('/admin/logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
             <!-- <a class="cta" href="/user/registrasi">Registrasi</a> -->
         </header>
 

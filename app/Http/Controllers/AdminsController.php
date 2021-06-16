@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class AdminsController extends Controller
@@ -16,7 +17,13 @@ class AdminsController extends Controller
      */
     public function index()
     {
-        //
+        $data = DB::table('pendaftarans')
+                ->where('verifikasi', '=', "unverified")
+                ->get();
+        $data2 = DB::table('pendaftarans')
+                ->where('verifikasi', '!=', "unverified")
+                ->get();
+        return view('admin.home', compact('data','data2'));
     }
 
     public function login(){
@@ -68,7 +75,10 @@ class AdminsController extends Controller
      */
     public function show(Admin $admin)
     {
-        //
+        $data = DB::table('pendaftarans')
+                ->where('verifikasi', '!=', "unverified")
+                ->get();
+        return view('user.profil', compact('data'));
     }
 
     /**
