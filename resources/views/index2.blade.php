@@ -9,22 +9,22 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
 
 </head>
 
-<body>
+<body style="background-color: #D7DBF1;">
     <div class="navbarr">
         <header>
             <a class="logo ml-4 text-sm text-gray-700 underline" href="">Accify.com</a>
             <nav>
-                <ul class="nav__links">
-                    <li><a href="/user/index">Home</a></li>
-                    <li><a href="/daftar">Daftar Akun</a></li>
-                </ul>
+                <a class="nav_home" href="/index" >Home</a>
+                <a class="nav_home" href="user/daftar">Daftar Akun</a>
             </nav>
-            <a class="cta" href="/user/login">Login</a>
+            <a class="cta" href="/user/login" >Login</a>
             <a class="cta" href="/user/registrasi">Registrasi</a>
+
         </header>
 
     </div>
@@ -42,17 +42,37 @@
 
     <div class="page-hero-section bg-image hero-home-1" style="background-image: url(../assets/img/bg6.png); background-repeat: no-repeat; background-size: 100%;">
 
-        <div class="page-section">
+        <div class="page-section" >
             <div class="container">
-                <div class="headerr">
+                <div class="headerr" >
                     <!-- <h1>Find what you want here</h1> -->
-                    <form action="/cari" method="get">
-                        <div class="form-box">
-                            <input type="text" class="search-field searching" name="cari" placeholder="Cari akun" value="{{old('cari')}}">
-                            <button class="search-btn" type="submit" value="cari">Search </button>
-                        </div>
-                    </form>
+                    <div class="form-box">
+                        <input type="text" class="search-field searching" placeholder="Cari akun">
+                        <button class="search-btn" type="button">Search </button>
+                    
+                    </div>
                 </div>
+
+                <div class=" col-md-10" style=" padding-left:250px; " >
+                        <br><br><br>
+                    <h5>List Akun</h5>
+                    <table class="table table-sm border-dark table-light" style="margin-top: 1em; font-size:1.3em; ">
+                                <thead class="table-dark">
+                                <tr>
+                                
+                                    <th scope="col">Nama Akun</th>
+                                    <th scope="col">Type</th>
+                                </tr>    
+                                </thead>
+                                <tbody>        
+                                    <tr>
+                                        <td>  a</td>
+                                        <td>  b </td>           
+                                    </tr>
+                                </tbody>
+                            </table>
+                </div>
+
 
                 <div class="img-place ">
                     <img src="../assets/img/app_preview_2.png" alt="">

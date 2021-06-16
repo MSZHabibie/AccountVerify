@@ -26,6 +26,7 @@ use App\Http\Controllers\HomeController;
 Auth::routes();
 
 Route::view('/', 'index')->name('index');
+Route::view('/index2', 'index2')->name('index2');
 
 Route::prefix('user')->name('user.')->group(function () {
 
@@ -36,10 +37,16 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::post('/check', 'App\Http\Controllers\UsersController@check');
     });
 
-
-    Route::middleware(['auth:web', 'PreventBackHistory'])->group(function () {
+    Route::middleware(['auth:web'])->group(function () {
         Route::view('/home', 'user.home')->name('home');
+        Route::view('/home2', 'user.home2')->name('home2');
         Route::get('/logout', 'App\Http\Controllers\UsersController@logout');
+        Route::get('/daftar', [DaftarController::class, 'index']);
+        Route::get('/daftar/create', [DaftarController::class, 'create']);
+        Route::get('/daftar/{tes}', [DaftarController::class, 'show']);
+        Route::post('/daftar', [DaftarController::class, 'store']);
+        Route::view('/profil', 'user.profil')->name('profil');
+        Route::view('/home', 'user.home')->name('home');
     });
 });
 
@@ -58,10 +65,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
 });
 
-Route::get('/daftar', [DaftarController::class, 'index']);
-Route::get('/daftar/create', [DaftarController::class, 'create']);
-Route::get('/daftar/{tes}', [DaftarController::class, 'show']);
-Route::post('/daftar', [DaftarController::class, 'store']);
+// Route::get('/daftar', [DaftarController::class, 'index']);
+// Route::get('/daftar/create', [DaftarController::class, 'create']);
+// Route::get('/daftar/{tes}', [DaftarController::class, 'show']);
+// Route::post('/daftar', [DaftarController::class, 'store']);
+// Route::view('/profil', 'user.profil')->name('profil');
+// Route::view('/home', 'user.home')->name('home');
 // Route::get('/daftars', [DaftarController::class, 'admin']);
 
 Route::get('/', [HomeController::class, 'index']);
