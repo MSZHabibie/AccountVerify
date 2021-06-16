@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProfilController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -39,7 +42,6 @@ Route::prefix('user')->name('user.')->group(function () {
     Route::middleware(['auth:web'])->group(function () {
         Route::view('/home', 'user.home')->name('home');
         Route::view('/home2', 'user.home2')->name('home2');
-        Route::get('/logout', 'App\Http\Controllers\UsersController@logout');
         Route::get('/daftar', [DaftarController::class, 'index']);
         Route::get('/daftar/create', [DaftarController::class, 'create']);
         Route::get('/daftar/{tes}', [DaftarController::class, 'show']);
@@ -47,6 +49,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::view('/profil', 'user.profil')->name('profil');
         Route::view('/home', 'user.home')->name('home');
         Route::post('/logout', 'App\Http\Controllers\UsersController@logout');
+        Route::get('/profil', [ProfilController::class, 'index']);
     });
 });
 
@@ -79,3 +82,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 // Route::view('/profil', 'user.profil')->name('profil');
 // Route::view('/home', 'user.home')->name('home');
 // Route::get('/daftars', [DaftarController::class, 'admin']);
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/cari', [HomeController::class, 'cari']);
+
