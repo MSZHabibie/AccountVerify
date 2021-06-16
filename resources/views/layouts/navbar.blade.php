@@ -23,6 +23,11 @@
                 <a class="nav_home" href="{{ url('user/daftar')}} ">Daftar Akun</a>
             </nav>
             <a class="cta" href="{{ url('user/profil')}} ">Profil</a>
+
+            <a type="submit" href="{{ url('user/logout') }}"  class="nav_home" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                <span class="nav__name">Keluar</span>
+            </a>
+            <form action="{{ url('/user/logout') }}" method="post" class="d-none" id="logout-form">@csrf</form>
             <!-- <a class="cta" href="/user/registrasi">Registrasi</a> -->
         </header>
 

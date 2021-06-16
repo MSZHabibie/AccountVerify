@@ -7,7 +7,7 @@
 <div class="card-body" style=" padding-top:2rem; ">
     <div class="row" >
         <div class="container  col-md-3" style="margin-left: 200px;" >
-            <img class="profil-img polaroid" src="../gambar/profil.png" alt="" width="400">     
+            <img class="profil-img polaroid" src="../gambar/{{ Auth::guard('web')->user()->foto }}" alt="" width="400">     
             <div class="row1">
                 <button type="" class="btn btn-primary btn-lg" href="/daftar" >Tambah Akun</button>
             </div>

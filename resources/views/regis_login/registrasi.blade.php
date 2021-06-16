@@ -65,6 +65,10 @@
                   @enderror
 
             </div>
+            
+            <div class="form-group">
+                <input type="hidden" name="foto" id="foto" value="profil.png" >
+            </div>
 
             <div >
                 <button type="submit" class="btn btn-block create-account">Konfirmasi</button>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
 class AdminsController extends Controller
@@ -16,7 +17,10 @@ class AdminsController extends Controller
      */
     public function index()
     {
-        //
+        $citizens = DB::table('citizens')
+                ->where('golongan', '=', "belum diverifikasi")
+                ->get();
+        return view('admin.verifikasi', compact('citizens'));
     }
 
     public function login(){

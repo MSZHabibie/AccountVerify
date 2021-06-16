@@ -60,6 +60,7 @@ class UsersController extends Controller
         $user->last_name = $request->last_name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
+        $user->foto = $request->foto;
 
         $query = $user->save();
         

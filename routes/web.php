@@ -46,6 +46,7 @@ Route::prefix('user')->name('user.')->group(function () {
         Route::post('/daftar', [DaftarController::class, 'store']);
         Route::view('/profil', 'user.profil')->name('profil');
         Route::view('/home', 'user.home')->name('home');
+        Route::post('/logout', 'App\Http\Controllers\UsersController@logout');
     });
 });
 
