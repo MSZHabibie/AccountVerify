@@ -46,11 +46,12 @@
             <div class="container">
                 <div class="headerr">
                     <!-- <h1>Find what you want here</h1> -->
-                    <div class="form-box">
-                        <input type="text" class="search-field searching" placeholder="Cari akun">
-                        <button class="search-btn" type="button">Search </button>
-
-                    </div>
+                    <form action="/cari" method="get">
+                        <div class="form-box">
+                            <input type="text" class="search-field searching" name="cari" placeholder="Cari akun" value="{{old('cari')}}">
+                            <button class="search-btn" type="submit" value="cari">Search </button>
+                        </div>
+                    </form>
                 </div>
 
                 <div class="img-place ">

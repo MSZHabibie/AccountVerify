@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DaftarController;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -62,3 +63,6 @@ Route::get('/daftar/create', [DaftarController::class, 'create']);
 Route::get('/daftar/{tes}', [DaftarController::class, 'show']);
 Route::post('/daftar', [DaftarController::class, 'store']);
 // Route::get('/daftars', [DaftarController::class, 'admin']);
+
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/cari', [HomeController::class, 'cari']);

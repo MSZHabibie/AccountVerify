@@ -2,6 +2,12 @@
 @section('title', 'Accify | Daftar')
 
 @section('body')
+
+@if (session('status'))
+<div class="alert alert-success">
+   {{ session('status') }}
+</div>
+@endif
 <div class="container mt-5">
    <h3>Kategori Akun</h3>
    <div class="dropdown">
