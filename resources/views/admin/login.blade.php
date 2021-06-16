@@ -3,12 +3,12 @@
 @section('container')
 
     <div class="regis-text">
-        <h1>Login</h1>
+        <h1>Login Admin</h1>
     </div>
     
     <div class="kotak"> 
     <div class="registration-form" style="padding-top:10px" >
-        <form action="/user/check" method="post" autocomplete="off">
+        <form action="/admin/check" method="post" autocomplete="off">
         @csrf
         
             <div class="result">
@@ -37,12 +37,12 @@
             </div>
             <div >
               <label for="password">Password </label>
-                <input type="password" class="form-control item @error('password') is-invalid @enderror" id="password" value="{{ old('password') }}" name="password" placeholder="Password" >
+                <input type="password" class="form-control item @error('password') is-invalid @enderror" id="password" value="{{ old('password') }}" name="password" placeholder="Password"  >
                 @error('password')
                     <span class="invalid-feedback">{{ $message }}</span>
                   @enderror
             </div>
-            <a class="login-admin" href="{{ url('/admin/masuk') }}">Login admin</a>
+            <a class="login-admin" href="{{ url('/user/login') }}">Login user</a>
 
             <div >
                 <button type="submit" class="btn btn-block create-account">Login</button>
