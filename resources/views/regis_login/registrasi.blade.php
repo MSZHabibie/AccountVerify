@@ -7,7 +7,7 @@
     </div>
     <div class="kotak"> 
     <div class="registration-form" style="padding-top:10px" >
-        <form action="/registrasi" method="post" autocomplete="off">
+        <form action="{{ url('user/registrasi')}}" method="post" autocomplete="off">
         @csrf
         
             <div class="result">

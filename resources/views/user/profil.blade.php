@@ -8,17 +8,7 @@
     <div class="row" >
         <div class="container  col-md-3" style="margin-left: 200px;" >
             <img class="profil-img polaroid" src="../gambar/{{ Auth::guard('web')->user()->foto }}" alt="" width="400">     
-            <div class="row1">
-                <button type="" class="btn btn-primary btn-lg" href="/daftar" >Tambah Akun</button>
-            </div>
-            <div class="row2">
-                <button type="submit" class="btn btn-success btn-lg">Edit</button>
-            </div>
-            <div class="row3">
-                <button type="submit" class="btn btn-danger btn-lg">Hapus</button>
-            </div>
-                 
-            
+                           
             <br>
         </div>
         <div class="container rounded-3 col-md-5 ">
@@ -58,17 +48,19 @@
         <table class="table table-sm border-dark table-light" style="margin-top: 1em; font-size:1.3em">
                     <thead class="table-dark">
                     <tr>
-                       
+                    
                         <th scope="col">Nama Akun</th>
                         <th scope="col">Type</th>
                     </tr>    
                     </thead>
-                    <tbody>        
+                    <tbody> 
+                    @foreach($data as $akun)           
                         <tr>
-                            <td>  a</td>
-                            <td>  b </td>           
+                            <td> {{ $akun-> account }}</td>
+                            <td>  {{ $akun-> type }} </td>           
                         </tr>
                     </tbody>
+                    @endforeach
                 </table>
             </div> 
 

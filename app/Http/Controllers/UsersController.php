@@ -68,7 +68,7 @@ class UsersController extends Controller
             return redirect('user/login');
         }
         else{
-            return redirect('user/registrasi')->with('fail', 'Gagal melakukan registrasi!');
+            return redirect("user/registrasi")->with('fail', 'Gagal melakukan registrasi!');
         }
     }
 

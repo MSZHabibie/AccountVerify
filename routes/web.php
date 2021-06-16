@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\DaftarController;
-use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,18 +60,22 @@ Route::prefix('admin')->name('admin.')->group(function () {
     });
 
     Route::middleware(['auth:admin', 'PreventBackHistory'])->group(function () {
-        Route::view('/home', 'admin.home')->name('home');
-        Route::get('/logout', 'App\Http\Controllers\AdminsController@logout');
+        // Route::view('/home', 'admin.home')->name('home');
+        Route::get('/home', 'App\Http\Controllers\AdminsController@index');
+        Route::post('/logout', 'App\Http\Controllers\AdminsController@logout');
+        Route::get('/daftar', [DaftarController::class, 'index2']);
+        Route::get('/profil', [AdminsController::class, 'show']);
+        Route::get('/daftar/create', [DaftarController::class, 'create']);
+        Route::get('/daftar/{tes}', [DaftarController::class, 'show']);
+        Route::post('/daftar', [DaftarController::class, 'store2']);
+        //Route::view('/profil', 'admin.profil')->name('');
     });
 });
 
-Route::get('/daftar', [DaftarController::class, 'index']);
-Route::get('/daftar/create', [DaftarController::class, 'create']);
-Route::get('/daftar/{tes}', [DaftarController::class, 'show']);
-Route::post('/daftar', [DaftarController::class, 'store']);
-Route::view('/profil', 'user.profil')->name('profil');
-Route::view('/home', 'user.home')->name('home');
-Route::get('/daftars', [DaftarController::class, 'admin']);
-
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/cari', [HomeController::class, 'cari']);
+// Route::get('/daftar', [DaftarController::class, 'index']);
+// Route::get('/daftar/create', [DaftarController::class, 'create']);
+// Route::get('/daftar/{tes}', [DaftarController::class, 'show']);
+// Route::post('/daftar', [DaftarController::class, 'store']);
+// Route::view('/profil', 'user.profil')->name('profil');
+// Route::view('/home', 'user.home')->name('home');
+// Route::get('/daftars', [DaftarController::class, 'admin']);

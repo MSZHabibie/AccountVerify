@@ -17,10 +17,13 @@ class AdminsController extends Controller
      */
     public function index()
     {
-        $citizens = DB::table('citizens')
-                ->where('golongan', '=', "belum diverifikasi")
+        $data = DB::table('pendaftarans')
+                ->where('verifikasi', '=', "unverified")
                 ->get();
-        return view('admin.verifikasi', compact('citizens'));
+        $data2 = DB::table('pendaftarans')
+                ->where('verifikasi', '!=', "unverified")
+                ->get();
+        return view('admin.home', compact('data','data2'));
     }
 
     public function login(){
@@ -72,7 +75,10 @@ class AdminsController extends Controller
      */
     public function show(Admin $admin)
     {
-        //
+        $data = DB::table('pendaftarans')
+                ->where('verifikasi', '!=', "unverified")
+                ->get();
+        return view('user.profil', compact('data'));
     }
 
     /**
