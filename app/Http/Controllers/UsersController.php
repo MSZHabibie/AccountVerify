@@ -19,12 +19,14 @@ class UsersController extends Controller
         //
     }
 
-    public function login(){
-        
+    public function login()
+    {
+
         return view('regis_login/login');
     }
 
-    public function regis(){
+    public function regis()
+    {
         return view('regis_login/registrasi');
     }
 
@@ -48,11 +50,11 @@ class UsersController extends Controller
     {
         // validate request
         $request->validate([
-            'first_name'=>'required',
-            'last_name'=>'required',
-            'email'=> 'required|email|unique:users,email',
-            'password'=> 'required|min:5',
-            'password2'=> 'required|min:5|same:password',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:5',
+            'password2' => 'required|min:5|same:password',
         ]);
 
         $user = new User();
@@ -62,38 +64,38 @@ class UsersController extends Controller
         $user->password = Hash::make($request->password);
 
         $query = $user->save();
-        
-        if($query){
+
+        if ($query) {
             return redirect('user/login');
-        }
-        else{
+        } else {
             return redirect('user/registrasi')->with('fail', 'Gagal melakukan registrasi!');
         }
     }
 
-    public function check(Request $request){
+    public function check(Request $request)
+    {
         $request->validate([
-            'email'=> 'required|exists:users,email',
-            'password'=> 'required|min:5',
-        ],[
-            'email.exists'=>'Email tidak ditemukan'
+            'email' => 'required|exists:users,email',
+            'password' => 'required|min:5',
+        ], [
+            'email.exists' => 'Email tidak ditemukan'
         ]);
 
-        $creds = $request->only('email','password');
-        if( Auth::guard('web')->attempt($creds) ){
+        $creds = $request->only('email', 'password');
+        if (Auth::guard('web')->attempt($creds)) {
             return redirect('/user/home');
-
-        }else{
-            return redirect('/user/login')->with('fail','Inputan Anda Salah!');
+        } else {
+            return redirect('/user/login')->with('fail', 'Inputan Anda Salah!');
         }
     }
 
 
-    public function logout(){
+    public function logout()
+    {
         Auth::guard('web')->logout();
         return redirect('/user/login');
     }
-   
+
 
     /**
      * Display the specified resource.

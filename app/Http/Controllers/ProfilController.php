@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Models\Checkbox;
 use App\Models\Pendaftaran;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 
-class DaftarController extends Controller
+class ProfilController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,11 @@ class DaftarController extends Controller
      */
     public function index()
     {
-        $checkbox = Checkbox::all();
-        return view('daftar/index', compact('checkbox'));
+        $account = DB::table('pendaftarans')
+            ->where('user', Auth::guard('web')->user()->last_name)
+            ->paginate(10);
+
+        return view('user/profil', ['account' => $account]);
     }
 
     /**
@@ -28,8 +30,7 @@ class DaftarController extends Controller
      */
     public function create()
     {
-        $checkbox = Checkbox::all();
-        return view('daftar/index', compact('checkbox'));
+        //
     }
 
     /**
@@ -40,22 +41,7 @@ class DaftarController extends Controller
      */
     public function store(Request $request)
     {
-        $pendaftaran = new Pendaftaran();
-        // $pendaftaran->category = $request->category;
-        // $pendaftaran->checkbox = $request->checkbox;
-        $pendaftaran->user = Auth::guard('web')->user()->last_name;
-        $arraytostring = implode(',', $request->input('checkbox'));
-        $pendaftaran['checkbox'] = $arraytostring;
-        $pendaftaran->file = $request->file;
-        $pendaftaran->keyword = $request->keyword;
-        $pendaftaran->account = $request->account;
-        $pendaftaran->type = $request->type;
-        // if (admin) {
-        //     $pendaftaran->verifikasi = 'verified';
-        // }
-        $pendaftaran->save();
-
-        return redirect('user/daftar')->with('status', 'Akun Memasuki Tahap Evaluasi Berkas');
+        //
     }
 
     /**
@@ -66,8 +52,7 @@ class DaftarController extends Controller
      */
     public function show($id)
     {
-        $checkbox = Checkbox::where('category', $id)->get();
-        return view('daftar/pendaftaran', compact('checkbox'));
+        //
     }
 
     /**
