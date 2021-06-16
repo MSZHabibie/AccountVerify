@@ -39,7 +39,30 @@ class DaftarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pendaftaran = new Pendaftaran();
+        // $pendaftaran->nama_user = $request->nama_user;
+        // $pendaftaran->category = $request->category;
+        // $pendaftaran->checkbox = $request->checkbox;
+        $arraytostring = implode(',', $request->input('checkbox'));
+        $pendaftaran['checkbox'] = $arraytostring;
+        $pendaftaran->file = $request->file;
+        $pendaftaran->keyword = $request->keyword;
+        $pendaftaran->account = $request->account;
+        $pendaftaran->type = $request->type;
+
+        $pendaftaran->save();
+
+        // Pendaftaran::create([
+        //     'nama_user' => $request->nama_user,
+        //     'category' => $request->category,
+        //     'checkbox' => $request->checkbox,
+        //     'keyword' => $request->keyword,
+        //     'account' => $request->account,
+        //     'type' => $request->type
+        // ]);
+
+        // Pendaftaran::create($request->all());
+        return redirect('/daftar');
     }
 
     /**

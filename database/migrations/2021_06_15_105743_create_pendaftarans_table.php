@@ -15,6 +15,11 @@ class CreatePendaftaransTable extends Migration
     {
         Schema::create('pendaftarans', function (Blueprint $table) {
             $table->id();
+            $table->string('checkbox');
+            $table->string('file');
+            $table->string('keyword');
+            $table->string('account');
+            $table->string('type');
             $table->timestamps();
         });
     }
