@@ -18,33 +18,34 @@
    </div>
 </div>
 <div class="container mt-5 rounded-3">
-   @foreach($checkbox as $chk)
-   <form method="post" action="/daftar/creat">
+   <form method="post" action="/daftar" class="row gy-2 gx-1 align-items-center">
+      @csrf
+      @foreach($checkbox as $chk)
       <div class="form-check">
-         <input class="form-check-input" type="checkbox" value="" id="check{{$chk->id}}" name="check{{$chk->id}}">
+         <input class="form-check-input" type="checkbox" value="{{$chk->id}}" id="check{{$chk->id}}" name="checkbox[{{$chk->id}}]">
          <label class="form-check-label" for="check{{$chk->id}}">
             {{ $chk->checkbox }}
          </label>
       </div>
-   </form>
-   @endforeach
-   <div class="mb-4 mt-4">
-      <h3>Bukti Keaslian</h3>
-      <input class="form-control" type="file" id="formFileMultiple" multiple>
-   </div>
-   <div class="mb-3">
-      <h3>Kata Kunci Pencarian</h3>
-      <input type="password" class="form-control" id="exampleInputPassword1">
-   </div>
-   <h3>Daftar Akun</h3>
-   <form method="post" action="/daftar/create" class="row gy-2 gx-1 align-items-center">
+
+      @endforeach
+      <div class="mb-4 mt-4">
+         <h3>Bukti Keaslian</h3>
+         <input class="form-control" type="file" id="file" name="file" multiple>
+      </div>
+      <div class="mb-3">
+         <h3>Kata Kunci Pencarian</h3>
+         <input type="text" class="form-control" id="keyword" name="keyword">
+      </div>
+      <h3>Daftar Akun</h3>
+
       <div class="col">
-         <label class="visually-hidden" for="autoSizingInput">Name</label>
-         <input type="text" class="form-control" id="autoSizingInput" placeholder="Your Name">
+         <label class="visually-hidden" for="account">Name</label>
+         <input type="text" class="form-control" id="account" name="account" placeholder="Name Account">
       </div>
       <div class="col-auto">
-         <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-         <select class="form-select" id="autoSizingSelect">
+         <label class="visually-hidden" for="type">Preference</label>
+         <select class="form-select" id="type" name="type">
             <option selected>Type</option>
             <option value="1">Instagram</option>
             <option value="2">WhatsApp</option>
@@ -54,8 +55,7 @@
       <div class="col-auto">
       </div>
 
-      <a href="/daftar/create" class="btn btn-primary mt-3">Tambah Akun</a>
-
+      <button type="submit" class="btn btn-primary mt-3">Tambah Akun</button>
    </form>
 </div>
 
