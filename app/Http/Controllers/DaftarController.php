@@ -20,7 +20,12 @@ class DaftarController extends Controller
         $checkbox = Checkbox::all();
         return view('daftar/index', compact('checkbox'));
     }
-
+    
+    public function index2()
+    {
+        $checkbox = Checkbox::all();
+        return view('admin/daftar', compact('checkbox'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -50,12 +55,30 @@ class DaftarController extends Controller
         $pendaftaran->keyword = $request->keyword;
         $pendaftaran->account = $request->account;
         $pendaftaran->type = $request->type;
-        // if (admin) {
-        //     $pendaftaran->verifikasi = 'verified';
-        // }
+        $pendaftaran->verifikasi = 'unverified';
+        
         $pendaftaran->save();
 
         return redirect('user/daftar')->with('status', 'Akun Memasuki Tahap Evaluasi Berkas');
+    }
+
+    public function store2(Request $request)
+    {
+        $pendaftaran = new Pendaftaran();
+        // $pendaftaran->category = $request->category;
+        // $pendaftaran->checkbox = $request->checkbox;
+        $pendaftaran->user = Auth::guard('web')->user()->last_name;
+        $arraytostring = implode(',', $request->input('checkbox'));
+        $pendaftaran['checkbox'] = $arraytostring;
+        $pendaftaran->file = $request->file;
+        $pendaftaran->keyword = $request->keyword;
+        $pendaftaran->account = $request->account;
+        $pendaftaran->type = $request->type;
+        $pendaftaran->verifikasi = 'verified';
+    
+        $pendaftaran->save();
+
+        return redirect('admin/daftar')->with('status', 'Akun berhasil ditambahkan');
     }
 
     /**
