@@ -8,26 +8,25 @@
 
    <!-- Bootstrap CSS -->
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
+   <link rel="stylesheet" type="text/css" href="../assets/css/style.css" />
+   <link rel="stylesheet" type="text/css" href="../../assets/css/style.css" />
+   
    <title>@yield('title')</title>
 </head>
 
 <body>
-   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-         <a class="navbar-brand" href="#">Accify.com</a>
-         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-               <a class="nav-link active" aria-current="page" href="{{url('/home')}}">Home</a>
-               <a class="nav-link" href="{{url('/daftar')}}">Daftar Akun</a>
-               <a class="nav-link" href="{{url('/profile')}}">Profile</a>
-            </div>
-         </div>
-      </div>
-   </nav>
+<div class="navbarr">
+        <header>
+            <a class="logo ml-4 text-sm text-gray-700 underline" href="">Accify.com</a>
+            <nav>
+                <a class="nav_home" href="{{ url('user/home')}} ">Home</a>
+                <a class="nav_home" href="{{ url('user/daftar')}} ">Daftar Akun</a>
+            </nav>
+            <a class="cta" href="{{ url('user/profil')}} ">Profil</a>
+            <!-- <a class="cta" href="/user/registrasi">Registrasi</a> -->
+        </header>
+
+    </div>
 
    @yield('body')
 

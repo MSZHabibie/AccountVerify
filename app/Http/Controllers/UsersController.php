@@ -64,10 +64,10 @@ class UsersController extends Controller
         $query = $user->save();
         
         if($query){
-            return redirect('/login');
+            return redirect('user/login');
         }
         else{
-            return back()->with('fail', 'Gagal melakukan registrasi!');
+            return redirect('user/registrasi')->with('fail', 'Gagal melakukan registrasi!');
         }
     }
 

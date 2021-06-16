@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap");
 
 body {
-    background-color: #d7dbf1;
+    background-color: #d3d7f1;
 }
 
 .registration-form {
@@ -50,7 +50,7 @@ body {
 
 @media (max-width: 576px) {
     .registration-form form {
-        padding: 20px 40px;
+        padding: 30px 60px;
     }
 }
 
@@ -137,6 +137,22 @@ header {
     font-size: 1.15rem;
     font-weight: 600;
 }
+.nav_home {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    font-weight: 600;
+    color: #1c2d8c;
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-weight: 620;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.cta {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
 
 .nav__links li {
     padding: 0px 20px;
@@ -158,6 +174,12 @@ header {
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
+}
+.ctb {
+    background-color: #bdc3e4;
+    padding: 1px 25px;
+    margin-left: 20px;
+    border-radius: 2px;
 }
 
 .cta:hover {
@@ -269,6 +291,16 @@ header {
     align-items: center;
     font-family: sans-serif;
 }
+.headerrr {
+    padding-top: 40px;
+    background-image: linear- gradient (rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
 
 .search-field {
     height: 60px;
@@ -313,4 +345,49 @@ header {
 .login-admin:hover {
     color: #fcb852;
     text-decoration: none;
+}
+
+.form-control,
+.form-check,
+.form-select {
+    font-size: 1.2rem;
+}
+
+.polaroid {
+    width: 80%;
+    background-color: white;
+    /* box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2),
+        0 6px 18px 0 rgba(65, 63, 63, 0.19); */
+    margin-bottom: 25px;
+    border-radius: 20px;
+    margin-left: 2.4rem;
+}
+
+.profil-image {
+    margin-left: 20px;
+    margin-right: auto;
+    display: block;
+    padding-left: 300px;
+}
+
+.row h6 {
+    font-size: 1.5rem;
+}
+
+.row1 {
+    width: 500px;
+    padding-left: 120px;
+    margin-bottom: 2rem;
+}
+
+.row2 {
+    width: 500px;
+    padding-left: 160px;
+    margin-bottom: 2rem;
+}
+
+.row3 {
+    width: 500px;
+    padding-left: 148px;
+    margin-bottom: 2rem;
 }
