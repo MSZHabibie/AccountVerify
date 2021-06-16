@@ -50,9 +50,9 @@ class DaftarController extends Controller
         $pendaftaran->keyword = $request->keyword;
         $pendaftaran->account = $request->account;
         $pendaftaran->type = $request->type;
-        // if (admin) {
-        //     $pendaftaran->verifikasi = 'verified';
-        // }
+        if (Auth::guard('admin')->check()) {
+            $pendaftaran->verifikasi = 'verified';
+        }
         $pendaftaran->save();
 
         return redirect('user/daftar')->with('status', 'Akun Memasuki Tahap Evaluasi Berkas');
